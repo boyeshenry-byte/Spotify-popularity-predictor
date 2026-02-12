@@ -50,8 +50,6 @@ spotify-popularity-predictor/
 ├── src/
 │   └── data_loader.py                     # Reusable data loading utilities
 │
-├── figures/                               # Key visualizations (optional)
-│
 ├── README.md                              # You are here
 ├── requirements.txt                       # Python dependencies
 └── .gitignore                             # Git exclusions
@@ -69,7 +67,7 @@ spotify-popularity-predictor/
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/spotify-popularity-predictor.git
+git clone https://github.com/boyeshenry-byte/Spotify-popularity-predictor.git
 cd spotify-popularity-predictor
 
 # Install dependencies
