@@ -18,6 +18,8 @@ This project analyzes **25,190 Spotify tracks** across 6 genres to determine whe
 
 ## 🔍 What We Discovered
 
+![Correlation Heatmap](figures/heatmap.png)
+
 ### Audio Feature Insights
 - ⬇️ **Higher energy = Lower popularity** (coefficient: -1.57, p < 0.001)
 - ⬆️ **Higher danceability = Higher popularity** (coefficient: +0.68, p < 0.001)
@@ -28,6 +30,9 @@ This project analyzes **25,190 Spotify tracks** across 6 genres to determine whe
 Rock, Pop, and Rap songs show higher baseline popularity than EDM and R&B, even after controlling for audio features.
 
 ### Clustering Findings
+
+![PCA Clustering](figures/pca.png)
+
 Songs cluster naturally into 6 groups by audio characteristics (Acoustic/Chill, Feel-Good Pop, Spoken Word/Rap, etc.), but these clusters show minimal popularity differences. **Acoustic similarity ≠ popularity similarity.**
 
 ---
@@ -35,24 +40,24 @@ Songs cluster naturally into 6 groups by audio characteristics (Acoustic/Chill, 
 ## 📁 Project Structure
 
 ```
-spotify-popularity-predictor/
-│
-├── notebooks/
-│   ├── 01_data_exploration.ipynb          # EDA, cleaning, feature engineering
-│   ├── 02_clustering_analysis.ipynb       # K-Means clustering, PCA visualization
-│   └── 03_linear_models.ipynb             # Regression modeling, cross-validation
-│
-├── data/
-│   ├── clean_spotify_data.csv             # Preprocessed dataset
-│   ├── log_transformed_spotify_data.csv   # Log-transformed features
-│   └── final_model_coefficients.csv       # Selected model parameters
-│
-├── src/
-│   └── data_loader.py                     # Reusable data loading utilities
-│
-├── README.md                              # You are here
-├── requirements.txt                       # Python dependencies
-└── .gitignore                             # Git exclusions
+├── data
+│   ├── clean_spotify_data.csv
+│   ├── cluster_assignments.csv
+│   ├── final_model_coefficients.csv
+│   └── log_transformed_spotify_data.csv
+├── figures
+│   ├── heatmap.png
+│   ├── modelR2.png
+│   ├── pca.png
+│   └── top_feat.png
+├── notebooks
+│   ├── 01_exploratory_analysis.ipynb
+│   ├── 02_clustering_analysis.ipynb
+│   └── 03_linear_models.ipynb
+├── readme.md
+├── requirements.txt
+└── src
+    └── data_loader.py
 ```
 
 ---
@@ -118,6 +123,8 @@ Execute notebooks in order:
 
 ## 📊 Model Performance
 
+![Model Comparison](figures/modelR2.png)
+
 | Model | Coefficients | R² (Train) | R² (CV) | Status |
 |-------|--------------|------------|---------|--------|
 | Baseline | 1 | 0.000 | 0.000 | ❌ No predictive power |
@@ -136,6 +143,8 @@ Execute notebooks in order:
 ---
 
 ## 🎓 Key Takeaways
+
+![Top Audio Features](figures/top_feat.png)
 
 ### What Audio Features Tell Us
 1. **Energy is the strongest predictor** - but negatively correlated (lower energy = more popular)
